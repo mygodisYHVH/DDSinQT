@@ -1,0 +1,37 @@
+#include "tao/StringSeq.pidl"
+#pragma DCPS_DATA_TYPE "org::omg::dds::SonarSimu::SonarProtocol"
+
+
+typedef sequence<octet> OctetSeq;
+
+module org {
+  module omg {
+    module dds {
+      module SonarSimu {
+
+        struct SonarProtocol {
+		  long OctetSeqLength;
+		  OctetSeq data;
+        };
+
+		struct SonarProtocolII{
+		  long speed;
+		  long screwNu;
+		  long screwVelocity;
+		  long activeDetectMode;
+		  long traceMode;
+		  long sweepBandNum;
+		  float eclipse;
+		  long sonarX;
+		  long sonarY;
+		  long sonarDepth;
+		  long sonarX2;
+		  long sonarY2;
+		  long sonarDepth2;
+		  long explosionInterval;
+		  long amorVolume;
+		  };
+      };
+    };
+  };
+};

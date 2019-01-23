@@ -1,0 +1,19 @@
+project(*VariantLengthTestPub) : dcpsexe, dcps_tcp {
+
+  exename   = VariantLengthTestPub
+
+  after    += *idl
+
+  TypeSupport_Files {
+
+    sonarProto.idl
+
+  }
+
+  Source_Files {
+
+   mainX.cpp
+
+  }
+
+}
