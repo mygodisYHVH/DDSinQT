@@ -26,13 +26,16 @@
 
 #include <ace/Argv_Type_Converter.h>
 #include "SonarModel.h"
+DDSInQT *mainWindow;
+DDS::DomainParticipant_var participant;
+std::string partition;
 using namespace OpenDDS::RTPS;
 using namespace OpenDDS::DCPS;
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
 	QApplication a(argc, argv);
 	int retval = -1;
-	try {
+//	try {
 		// Initialize DomainParticipantFactory
 		DDS::DomainParticipantFactory_var dpf =
 			TheParticipantFactoryWithArgs(argc, argv);
