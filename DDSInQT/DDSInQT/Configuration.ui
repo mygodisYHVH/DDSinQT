@@ -121,14 +121,14 @@
     <item>
      <widget class="QRadioButton" name="radioButton">
       <property name="text">
-       <string>发布�?</string>
+       <string>发布者</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QRadioButton" name="radioButton_2">
       <property name="text">
-       <string>订购�?</string>
+       <string>订购者</string>
       </property>
      </widget>
     </item>
@@ -160,7 +160,7 @@
        </size>
       </property>
       <property name="text">
-       <string>�?节点名称�?</string>
+       <string>本节点名称：</string>
       </property>
      </widget>
     </item>

@@ -1,51 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
     <Filter Include="Form Files">
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>moc;h;cpp</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Inline Files">
-      <UniqueIdentifier>{69b9dca9-5ec8-4ae2-910f-d83fc5c3f186}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Idl Files">
-      <UniqueIdentifier>{05714476-4671-4f4b-8bd0-e29e0cff0cd3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Typesupport And Idl Files">
-      <UniqueIdentifier>{ecc0ea01-4940-40ce-b064-b1d86add88d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Build Files">
-      <UniqueIdentifier>{17d68540-b4f7-4c07-b3e4-a2485a8872b6}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DDSInQT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SonarModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="configuration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DDSInQT.cpp">
+    <ClCompile Include="sonarProtoC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sonarProtoS.cpp">
@@ -60,10 +74,7 @@
     <ClCompile Include="sonarProtoTypeSupportS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SonarModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sonarProtoC.cpp">
+    <ClCompile Include="sublistener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,21 +82,12 @@
     <QtMoc Include="DDSInQT.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="DDSInQT.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Configuration.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="DDSInQT.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="SonarModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="configuration.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <ClInclude Include="sonarProtoC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -101,16 +103,46 @@
     <ClInclude Include="sonarProtoTypeSupportS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SonarModel.h">
+    <QtMoc Include="sublistener.h">
       <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    
+    
+    
+    
+    <ClInclude Include="ui_Configuration.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_DDSInQT.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="sonarProtoC.inl">
-      <Filter>Inline Files</Filter>
-    </None>
-    <None Include="sonarProtoTypeSupportC.inl">
-      <Filter>Inline Files</Filter>
+    <QtUic Include="Configuration.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DDSInQT.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="DDSInQT.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="images\gear5.png">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

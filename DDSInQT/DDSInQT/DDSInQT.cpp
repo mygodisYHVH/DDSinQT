@@ -35,7 +35,11 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
     participant_ = participant;
 	srand((int)time(0));
     topicName = "";
+   bool res=false;
+   listener_ =  new SubListener;
+   res =  connect(listener_,SIGNAL(emitData(QByteArray)),this,SLOT(receiveDataFromDDS(QByteArray)),Qt::QueuedConnection);
     memberName = "";
+
     //创建会话
 //	DDS::TopicQos topic_qos;
 //	participant->get_default_topic_qos(topic_qos);
@@ -62,7 +66,7 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
 //			0,
 //			OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 
-//    //创建发布�?
+//    //创建发布者
 //	DDS::PublisherQos pub_qos;
 //	participant->get_default_publisher_qos(pub_qos);
 //	if (!partition.empty()) {
@@ -78,7 +82,7 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
 //	if (!publisher_) {
 //		cout << "Could not create publisher \n";
 //	}
-//    //创建写�?�象
+//    //创建写对象
 //    DDS::DataWriterQos qos_;
 //    publisher_->get_default_datawriter_qos(qos_);
 //    qos_.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
@@ -99,7 +103,7 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
 //        //          std::cerr << "Could not create data writer " << std::endl;
 //    }
 
-    //创建订购�?
+    //创建订购者
 //    DDS::SubscriberQos sub_qos;
 //    participant->get_default_subscriber_qos(sub_qos);
 //    if (!partition.empty()) {
@@ -115,7 +119,7 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
 //        //        std::cerr << "Could not create subscriber " << std::endl;
 //    }
 
-//    //创建读�?�象
+//    //创建读对象
 //    DDS::TopicDescription_var topicDesc;
 //    DDS::DataReaderQos Reader_qos_;
 //    subscriber_->get_default_datareader_qos(Reader_qos_);
@@ -157,9 +161,34 @@ DDSInQT::DDSInQT(DDS::DomainParticipant_var participant,
 
 }
 
+void DDSInQT::receiveDataFromDDS(QByteArray data)
+{
+
+    QString haha = QString::fromStdString( data.toStdString());
+    ui.testEdition->insertPlainText(haha);
+}
+
 void DDSInQT::on_toolButton_clicked()
 {
 	Configuration dlg;
 	dlg.exec();
 }
+
+
+void DDSInQT::on_write_clicked()
+{
+    QString data = ui.textInput->text();
+    SonarProtocol protocol;
+    protocol.OctetSeqLength = data.length();
+    protocol.data.length(data.length());
+    memcpy(&protocol.data[0],data.toStdString().data(),data.length());
+    DDS::ReturnCode_t res;
+    res = dw->write(protocol,::DDS::HANDLE_NIL);
+    if(res==0)
+    {
+        ui.testEdition->insertPlainText("发送成功\n");
+    }
+}
+
+
 

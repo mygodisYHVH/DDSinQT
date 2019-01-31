@@ -54,7 +54,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		DDS::DomainId_t domain = 0;
 		bool multicast = true;
 		unsigned int resend = 1;
-		std::string partition, governance, permissions;
+        std::string  governance, permissions;
 		int defaultSize = 0;
 
 		int curr = 1;
@@ -142,7 +142,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		DDS::DomainParticipantQos dp_qos;
 		dpf->get_default_participant_qos(dp_qos);
 		// Create DomainParticipant
-		DDS::DomainParticipant_var participant =
+        participant= NULL;
+         participant =
 			dpf->create_participant(domain,
 				dp_qos,
 				0,
@@ -153,7 +154,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 			TheServiceParticipant->shutdown();
 			return EXIT_FAILURE;
 		}
-
+	
 		srand(clock());
 		ACE_Argv_Type_Converter atc(argc, argv);
 
@@ -161,8 +162,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 			  // create and show your widgets here
 		//      ShapesDialog shapes(participant, partition, defaultSize);
 		//SonarModel dlg(participant, partition);
-		DDSInQT w(participant, partition);
-		w.show();
+        mainWindow = new DDSInQT(participant, partition);
+        mainWindow->show();
 #ifdef OPENDDS_SECURITY
 		if (TheServiceParticipant->get_security()) {
 			shapes.setWindowTitle("OpenDDS Security BETA");
@@ -172,15 +173,15 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 
 		// Clean-up!
-		participant->delete_contained_entities();
+		/*participant->delete_contained_entities();
 		dpf->delete_participant(participant);
-
-}
-	catch (const CORBA::Exception& e) {
-		std::cerr << "Exception in main: " << e << std::endl;
-		retval = -1;
-	}
-	TheServiceParticipant->shutdown();
+		TheServiceParticipant->shutdown();*/
+//	}
+//	catch (const CORBA::Exception& e) {
+//		std::cerr << "Exception in main: " << e << std::endl;
+//		retval = -1;
+//	}
+	
 	
 	return a.exec();
 }

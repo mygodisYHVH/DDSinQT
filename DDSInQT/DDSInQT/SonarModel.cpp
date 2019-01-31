@@ -2,6 +2,7 @@
 #include <dds/DCPS/Marked_Default_Qos.h>
 #include <dds/DdsDcpsInfrastructureC.h>
 #include<stdio.h>
+#include<QtCore>
 using namespace std;
 #include "ace/config-all.h"
 #include <iostream>  
@@ -40,11 +41,11 @@ SonarModel::SonarModel(DDS::DomainParticipant_var participant,
 	if (ts->register_type(participant, type_name) != DDS::RETCODE_OK) {
 		//        std::cout << "Could not register type " << std::endl;
 	}
-	char* sig = "aiyawocao";
+    QString sig = "aiyawocao";
 	DDS::DomainParticipantQos dpq;
 	dpq.user_data.value.length(100);
 
-	memcpy(&dpq.user_data.value[0], sig, 11);
+    memcpy(&dpq.user_data.value[0], sig.toStdString().data(), 11);
 
 	participant->set_qos(dpq);
 
@@ -124,7 +125,7 @@ SonarModel::SonarModel(DDS::DomainParticipant_var participant,
 	qos_.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
 	qos_.user_data.value.length(100);
 	
-	memcpy(&qos_.user_data.value[0], sig, 11);
+    memcpy(&qos_.user_data.value[0], sig.toStdString().data(), 11);
 
 	
 
